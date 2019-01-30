@@ -10,5 +10,6 @@ import { LanguageServerContribution } from "@theia/languages/lib/node";
 import { HaskellContribution } from './haskell-contribution';
 
 export default new ContainerModule(bind => {
-    bind(LanguageServerContribution).to(HaskellContribution).inSingletonScope();
+    bind(HaskellContribution).toSelf().inSingletonScope();
+    bind(LanguageServerContribution).toService(HaskellContribution);
 });
