@@ -1,0 +1,14 @@
+image:
+    file: Dockerfile
+ports:
+- port: 3000
+  onOpen: open-browser
+tasks:
+- init: >
+    yarn &&
+    cd /workspace &&
+    git clone https://github.com/begriffs/haskell-circle-example.git &&
+    cd /workspace/haskell-theia-extension
+  command: >
+    cd browser-app &&
+    yarn start --hostname 0.0.0.0 ../../haskell-circle-example/

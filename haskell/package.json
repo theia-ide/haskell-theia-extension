@@ -1,0 +1,28 @@
+{
+  "name": "@theia/haskell",
+  "keywords": [
+    "theia-extension"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "data",
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@theia/core": "next",
+    "@theia/monaco": "next"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "npx rimraf lib",
+    "build": "npx tsc",
+    "watch": "npx tsc -w"
+  },
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/haskell-frontend-module",
+      "backend": "lib/node/haskell-backend-module"
+    }
+  ]
+}
